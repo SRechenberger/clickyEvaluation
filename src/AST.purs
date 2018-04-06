@@ -88,9 +88,13 @@ derive instance ordAtom :: Ord Atom
 -- | Expressions
 -- |
 -- | The basic expressions the `Parser` and `Evaluator` recognize.
-
-data Tree a b o m =
-    Atom      m a
+-- | Type variables:
+-- |  a: atom
+-- |  b: binding
+-- |  o: operator
+-- |  m: meta
+data Tree a b o m
+  = Atom      m a
   | List      m (List (Tree a b o m))
   | NTuple    m (List (Tree a b o m))
   | Binary    m o (Tree a b o m) (Tree a b o m)
